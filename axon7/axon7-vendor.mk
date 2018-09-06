@@ -356,7 +356,6 @@ PRODUCT_COPY_FILES += \
     vendor/zte/axon7/proprietary/vendor/lib/libqmi_cci_system.so:$(TARGET_COPY_OUT_VENDOR)/lib/libqmi_cci_system.so \
     vendor/zte/axon7/proprietary/lib/librcc.so:system/lib/librcc.so \
     vendor/zte/axon7/proprietary/lib/libsd_sdk_display.so:system/lib/libsd_sdk_display.so \
-    vendor/zte/axon7/proprietary/lib/libsdm-disp-apis.so:system/lib/libsdm-disp-apis.so \
     vendor/zte/axon7/proprietary/lib/vendor.display.color@1.0.so:system/lib/vendor.display.color@1.0.so \
     vendor/zte/axon7/proprietary/lib/vendor.display.postproc@1.0.so:system/lib/vendor.display.postproc@1.0.so \
     vendor/zte/axon7/proprietary/lib/vendor.qti.hardware.data.latency@1.0.so:system/lib/vendor.qti.hardware.data.latency@1.0.so \
@@ -377,7 +376,6 @@ PRODUCT_COPY_FILES += \
     vendor/zte/axon7/proprietary/vendor/lib64/libqmi_cci_system.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libqmi_cci_system.so \
     vendor/zte/axon7/proprietary/lib64/librcc.so:system/lib64/librcc.so \
     vendor/zte/axon7/proprietary/lib64/libsd_sdk_display.so:system/lib64/libsd_sdk_display.so \
-    vendor/zte/axon7/proprietary/lib64/libsdm-disp-apis.so:system/lib64/libsdm-disp-apis.so \
     vendor/zte/axon7/proprietary/vendor/lib64/libvendorcfg.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libvendorcfg.so \
     vendor/zte/axon7/proprietary/lib64/vendor.display.color@1.0.so:system/lib64/vendor.display.color@1.0.so \
     vendor/zte/axon7/proprietary/lib64/vendor.display.postproc@1.0.so:system/lib64/vendor.display.postproc@1.0.so \
@@ -541,10 +539,10 @@ PRODUCT_COPY_FILES += \
     vendor/zte/axon7/proprietary/vendor/lib/libqmi_csi.so:$(TARGET_COPY_OUT_VENDOR)/lib/libqmi_csi.so \
     vendor/zte/axon7/proprietary/vendor/lib/libqmi_encdec.so:$(TARGET_COPY_OUT_VENDOR)/lib/libqmi_encdec.so \
     vendor/zte/axon7/proprietary/vendor/lib/libqmiservices.so:$(TARGET_COPY_OUT_VENDOR)/lib/libqmiservices.so \
+    vendor/zte/axon7/proprietary/vendor/lib/libqseed3.so:$(TARGET_COPY_OUT_VENDOR)/lib/libqseed3.so \
     vendor/zte/axon7/proprietary/vendor/lib/libqtigef.so:$(TARGET_COPY_OUT_VENDOR)/lib/libqtigef.so \
     vendor/zte/axon7/proprietary/vendor/lib/librs_adreno.so:$(TARGET_COPY_OUT_VENDOR)/lib/librs_adreno.so \
     vendor/zte/axon7/proprietary/vendor/lib/librs_adreno_sha1.so:$(TARGET_COPY_OUT_VENDOR)/lib/librs_adreno_sha1.so \
-    vendor/zte/axon7/proprietary/vendor/lib/libscalar.so:$(TARGET_COPY_OUT_VENDOR)/lib/libscalar.so \
     vendor/zte/axon7/proprietary/vendor/lib/libsdm-color.so:$(TARGET_COPY_OUT_VENDOR)/lib/libsdm-color.so \
     vendor/zte/axon7/proprietary/vendor/lib/libsdm-diag.so:$(TARGET_COPY_OUT_VENDOR)/lib/libsdm-diag.so \
     vendor/zte/axon7/proprietary/vendor/lib/libsdmextension.so:$(TARGET_COPY_OUT_VENDOR)/lib/libsdmextension.so \
@@ -705,6 +703,7 @@ PRODUCT_COPY_FILES += \
     vendor/zte/axon7/proprietary/vendor/lib64/libqmi_csi.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libqmi_csi.so \
     vendor/zte/axon7/proprietary/vendor/lib64/libqmi_encdec.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libqmi_encdec.so \
     vendor/zte/axon7/proprietary/vendor/lib64/libqmiservices.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libqmiservices.so \
+    vendor/zte/axon7/proprietary/vendor/lib64/libqseed3.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libqseed3.so \
     vendor/zte/axon7/proprietary/vendor/lib64/libqtigef.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libqtigef.so \
     vendor/zte/axon7/proprietary/vendor/lib64/libril-qc-ltedirectdisc.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libril-qc-ltedirectdisc.so \
     vendor/zte/axon7/proprietary/vendor/lib64/libril-qc-qmi-1.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libril-qc-qmi-1.so \
