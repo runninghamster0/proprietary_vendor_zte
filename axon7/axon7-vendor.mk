@@ -335,6 +335,7 @@ PRODUCT_COPY_FILES += \
     vendor/zte/axon7/proprietary/etc/permissions/com.quicinc.cne.xml:system/etc/permissions/com.quicinc.cne.xml \
     vendor/zte/axon7/proprietary/etc/permissions/dpmapi.xml:system/etc/permissions/dpmapi.xml \
     vendor/zte/axon7/proprietary/etc/permissions/lpa.xml:system/etc/permissions/lpa.xml \
+    vendor/zte/axon7/proprietary/etc/permissions/org.simalliance.openmobileapi.xml:system/etc/permissions/org.simalliance.openmobileapi.xml \
     vendor/zte/axon7/proprietary/etc/permissions/qcrilhook.xml:system/etc/permissions/qcrilhook.xml \
     vendor/zte/axon7/proprietary/vendor/etc/permissions/qti-vzw-ims-internal.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/qti-vzw-ims-internal.xml \
     vendor/zte/axon7/proprietary/vendor/etc/permissions/qti_libpermissions.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/qti_libpermissions.xml \
@@ -354,6 +355,7 @@ PRODUCT_COPY_FILES += \
     vendor/zte/axon7/proprietary/framework/com.quicinc.cne.server-V2.1-java.jar:system/framework/com.quicinc.cne.server-V2.1-java.jar \
     vendor/zte/axon7/proprietary/framework/com.quicinc.cne.server-V2.2-java.jar:system/framework/com.quicinc.cne.server-V2.2-java.jar \
     vendor/zte/axon7/proprietary/framework/dpmapi.jar:system/framework/dpmapi.jar \
+    vendor/zte/axon7/proprietary/framework/org.simalliance.openmobileapi.jar:system/framework/org.simalliance.openmobileapi.jar \
     vendor/zte/axon7/proprietary/framework/tcmclient.jar:system/framework/tcmclient.jar \
     vendor/zte/axon7/proprietary/framework/vendor.qti.data.factory-V1.0-java.jar:system/framework/vendor.qti.data.factory-V1.0-java.jar \
     vendor/zte/axon7/proprietary/framework/vendor.qti.hardware.alarm-V1.0-java.jar:system/framework/vendor.qti.hardware.alarm-V1.0-java.jar \
@@ -801,6 +803,7 @@ PRODUCT_PACKAGES += \
     ims \
     imssettings \
     CNEService \
+    SmartcardService \
     dpmserviceapp \
     qcrilmsgtunnel \
     PowerOffAlarm \
