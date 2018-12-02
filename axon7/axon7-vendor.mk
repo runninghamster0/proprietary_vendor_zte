@@ -800,11 +800,10 @@ PRODUCT_PACKAGES += \
     libsdm-disp-vndapis \
     libthermalclient \
     QtiTelephonyService \
-    ims \
-    imssettings \
     CNEService \
     SmartcardService \
     dpmserviceapp \
+    ims \
     qcrilmsgtunnel \
     PowerOffAlarm \
     TimeService \
