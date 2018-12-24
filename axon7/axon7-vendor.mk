@@ -327,8 +327,10 @@ PRODUCT_COPY_FILES += \
 ifeq ($(QCPATH),)
 PRODUCT_COPY_FILES += \
     vendor/zte/axon7/proprietary/bin/dpmd:system/bin/dpmd \
+    vendor/zte/axon7/proprietary/bin/wfdservice:system/bin/wfdservice \
     vendor/zte/axon7/proprietary/etc/dpm/dpm.conf:system/etc/dpm/dpm.conf \
     vendor/zte/axon7/proprietary/etc/init/dpmd.rc:system/etc/init/dpmd.rc \
+    vendor/zte/axon7/proprietary/etc/init/wfdservice.rc:system/etc/init/wfdservice.rc \
     vendor/zte/axon7/proprietary/etc/permissions/cneapiclient.xml:system/etc/permissions/cneapiclient.xml \
     vendor/zte/axon7/proprietary/etc/permissions/com.qti.dpmframework.xml:system/etc/permissions/com.qti.dpmframework.xml \
     vendor/zte/axon7/proprietary/etc/permissions/com.quicinc.cne.xml:system/etc/permissions/com.quicinc.cne.xml \
@@ -340,6 +342,8 @@ PRODUCT_COPY_FILES += \
     vendor/zte/axon7/proprietary/vendor/etc/permissions/qti_libpermissions.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/qti_libpermissions.xml \
     vendor/zte/axon7/proprietary/vendor/etc/permissions/qti_permissions.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/qti_permissions.xml \
     vendor/zte/axon7/proprietary/etc/permissions/telephonyservice.xml:system/etc/permissions/telephonyservice.xml \
+    vendor/zte/axon7/proprietary/etc/wfdconfig.xml:system/etc/wfdconfig.xml \
+    vendor/zte/axon7/proprietary/etc/wfdconfigsink.xml:system/etc/wfdconfigsink.xml \
     vendor/zte/axon7/proprietary/framework/cneapiclient.jar:system/framework/cneapiclient.jar \
     vendor/zte/axon7/proprietary/framework/com.qti.dpmframework.jar:system/framework/com.qti.dpmframework.jar \
     vendor/zte/axon7/proprietary/framework/com.quicinc.cne.api-V1.0-java.jar:system/framework/com.quicinc.cne.api-V1.0-java.jar \
@@ -363,17 +367,42 @@ PRODUCT_COPY_FILES += \
     vendor/zte/axon7/proprietary/framework/vendor.qti.latency-V2.0-java.jar:system/framework/vendor.qti.latency-V2.0-java.jar \
     vendor/zte/axon7/proprietary/lib/com.qualcomm.qti.ant@1.0.so:system/lib/com.qualcomm.qti.ant@1.0.so \
     vendor/zte/axon7/proprietary/lib/com.qualcomm.qti.imscmservice@1.0.so:system/lib/com.qualcomm.qti.imscmservice@1.0.so \
+    vendor/zte/axon7/proprietary/lib/com.qualcomm.qti.wifidisplayhal@1.0.so:system/lib/com.qualcomm.qti.wifidisplayhal@1.0.so \
+    vendor/zte/axon7/proprietary/lib/extractors/libmmparser.so:system/lib/extractors/libmmparser.so \
     vendor/zte/axon7/proprietary/lib/lib-imscamera.so:system/lib/lib-imscamera.so \
     vendor/zte/axon7/proprietary/lib/lib-imsvideocodec.so:system/lib/lib-imsvideocodec.so \
     vendor/zte/axon7/proprietary/lib/lib-imsvtextutils.so:system/lib/lib-imsvtextutils.so \
     vendor/zte/axon7/proprietary/lib/lib-imsvtutils.so:system/lib/lib-imsvtutils.so \
+    vendor/zte/axon7/proprietary/lib/libFileMux.so:system/lib/libFileMux.so \
+    vendor/zte/axon7/proprietary/lib/libOmxMux.so:system/lib/libOmxMux.so \
     vendor/zte/axon7/proprietary/lib/libaptXHD_encoder.so:system/lib/libaptXHD_encoder.so \
     vendor/zte/axon7/proprietary/lib/libaptX_encoder.so:system/lib/libaptX_encoder.so \
     vendor/zte/axon7/proprietary/lib/libdiag_system.so:system/lib/libdiag_system.so \
     vendor/zte/axon7/proprietary/lib/libimscamera_jni.so:system/lib/libimscamera_jni.so \
     vendor/zte/axon7/proprietary/lib/libimsmedia_jni.so:system/lib/libimsmedia_jni.so \
+    vendor/zte/axon7/proprietary/lib/libmmosal.so:system/lib/libmmosal.so \
+    vendor/zte/axon7/proprietary/lib/libmmparser_lite.so:system/lib/libmmparser_lite.so \
+    vendor/zte/axon7/proprietary/lib/libmmrtpdecoder.so:system/lib/libmmrtpdecoder.so \
+    vendor/zte/axon7/proprietary/lib/libmmrtpencoder.so:system/lib/libmmrtpencoder.so \
     vendor/zte/axon7/proprietary/vendor/lib/libqmi_cci_system.so:$(TARGET_COPY_OUT_VENDOR)/lib/libqmi_cci_system.so \
     vendor/zte/axon7/proprietary/lib/librcc.so:system/lib/librcc.so \
+    vendor/zte/axon7/proprietary/lib/libwfdavenhancements.so:system/lib/libwfdavenhancements.so \
+    vendor/zte/axon7/proprietary/lib/libwfdclient.so:system/lib/libwfdclient.so \
+    vendor/zte/axon7/proprietary/lib/libwfdcodecv4l2.so:system/lib/libwfdcodecv4l2.so \
+    vendor/zte/axon7/proprietary/lib/libwfdcommonutils.so:system/lib/libwfdcommonutils.so \
+    vendor/zte/axon7/proprietary/lib/libwfdconfigutils.so:system/lib/libwfdconfigutils.so \
+    vendor/zte/axon7/proprietary/lib/libwfdmminterface.so:system/lib/libwfdmminterface.so \
+    vendor/zte/axon7/proprietary/lib/libwfdmmsink.so:system/lib/libwfdmmsink.so \
+    vendor/zte/axon7/proprietary/lib/libwfdmmsrc.so:system/lib/libwfdmmsrc.so \
+    vendor/zte/axon7/proprietary/lib/libwfdnative.so:system/lib/libwfdnative.so \
+    vendor/zte/axon7/proprietary/lib/libwfdrtsp.so:system/lib/libwfdrtsp.so \
+    vendor/zte/axon7/proprietary/lib/libwfdservice.so:system/lib/libwfdservice.so \
+    vendor/zte/axon7/proprietary/lib/libwfdsm.so:system/lib/libwfdsm.so \
+    vendor/zte/axon7/proprietary/lib/libwfduibcinterface.so:system/lib/libwfduibcinterface.so \
+    vendor/zte/axon7/proprietary/lib/libwfduibcsink.so:system/lib/libwfduibcsink.so \
+    vendor/zte/axon7/proprietary/lib/libwfduibcsinkinterface.so:system/lib/libwfduibcsinkinterface.so \
+    vendor/zte/axon7/proprietary/lib/libwfduibcsrc.so:system/lib/libwfduibcsrc.so \
+    vendor/zte/axon7/proprietary/lib/libwfduibcsrcinterface.so:system/lib/libwfduibcsrcinterface.so \
     vendor/zte/axon7/proprietary/lib/vendor.qti.imsrtpservice@1.0.so:system/lib/vendor.qti.imsrtpservice@1.0.so \
     vendor/zte/axon7/proprietary/lib64/com.qualcomm.qti.ant@1.0.so:system/lib64/com.qualcomm.qti.ant@1.0.so \
     vendor/zte/axon7/proprietary/lib64/com.qualcomm.qti.dpm.api@1.0.so:system/lib64/com.qualcomm.qti.dpm.api@1.0.so \
@@ -392,9 +421,12 @@ PRODUCT_COPY_FILES += \
     vendor/zte/axon7/proprietary/lib64/libdpmtcm.so:system/lib64/libdpmtcm.so \
     vendor/zte/axon7/proprietary/lib64/libimscamera_jni.so:system/lib64/libimscamera_jni.so \
     vendor/zte/axon7/proprietary/lib64/libimsmedia_jni.so:system/lib64/libimsmedia_jni.so \
+    vendor/zte/axon7/proprietary/lib64/libmmosal.so:system/lib64/libmmosal.so \
     vendor/zte/axon7/proprietary/vendor/lib64/libqmi_cci_system.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libqmi_cci_system.so \
     vendor/zte/axon7/proprietary/lib64/librcc.so:system/lib64/librcc.so \
     vendor/zte/axon7/proprietary/vendor/lib64/libvendorcfg.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libvendorcfg.so \
+    vendor/zte/axon7/proprietary/lib64/libwfdclient.so:system/lib64/libwfdclient.so \
+    vendor/zte/axon7/proprietary/lib64/libwfdnative.so:system/lib64/libwfdnative.so \
     vendor/zte/axon7/proprietary/lib64/vendor.qti.gnss@1.0.so:system/lib64/vendor.qti.gnss@1.0.so \
     vendor/zte/axon7/proprietary/lib64/vendor.qti.gnss@1.1.so:system/lib64/vendor.qti.gnss@1.1.so \
     vendor/zte/axon7/proprietary/lib64/vendor.qti.gnss@1.2.so:system/lib64/vendor.qti.gnss@1.2.so \
@@ -434,6 +466,7 @@ PRODUCT_COPY_FILES += \
     vendor/zte/axon7/proprietary/vendor/bin/thermal-engine:$(TARGET_COPY_OUT_VENDOR)/bin/thermal-engine \
     vendor/zte/axon7/proprietary/vendor/bin/time_daemon:$(TARGET_COPY_OUT_VENDOR)/bin/time_daemon \
     vendor/zte/axon7/proprietary/vendor/bin/wcnss_filter:$(TARGET_COPY_OUT_VENDOR)/bin/wcnss_filter \
+    vendor/zte/axon7/proprietary/vendor/bin/wifidisplayhalservice:$(TARGET_COPY_OUT_VENDOR)/bin/wifidisplayhalservice \
     vendor/zte/axon7/proprietary/vendor/bin/xtra-daemon:$(TARGET_COPY_OUT_VENDOR)/bin/xtra-daemon \
     vendor/zte/axon7/proprietary/vendor/etc/cacert_location.pem:$(TARGET_COPY_OUT_VENDOR)/etc/cacert_location.pem \
     vendor/zte/axon7/proprietary/vendor/etc/cne/wqeclient/ATT/ATT_profile1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/cne/wqeclient/ATT/ATT_profile1.xml \
@@ -467,6 +500,7 @@ PRODUCT_COPY_FILES += \
     vendor/zte/axon7/proprietary/vendor/etc/data/netmgr_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/data/netmgr_config.xml \
     vendor/zte/axon7/proprietary/vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.bluetooth@1.0-service-qti.rc \
     vendor/zte/axon7/proprietary/vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.drm@1.1-service.widevine.rc \
+    vendor/zte/axon7/proprietary/vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc \
     vendor/zte/axon7/proprietary/vendor/etc/init/vendor.display.color@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.display.color@1.0-service.rc \
     vendor/zte/axon7/proprietary/vendor/etc/init/vendor.qti.gnss@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.gnss@1.0-service.rc \
     vendor/zte/axon7/proprietary/vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.qti.hardware.alarm@1.0-service.rc \
@@ -474,6 +508,7 @@ PRODUCT_COPY_FILES += \
     vendor/zte/axon7/proprietary/vendor/etc/xtra_root_cert.pem:$(TARGET_COPY_OUT_VENDOR)/etc/xtra_root_cert.pem \
     vendor/zte/axon7/proprietary/vendor/framework/qti-vzw-ims-internal.jar:$(TARGET_COPY_OUT_VENDOR)/framework/qti-vzw-ims-internal.jar \
     vendor/zte/axon7/proprietary/vendor/lib/com.qualcomm.qti.imscmservice@1.0_vendor.so:$(TARGET_COPY_OUT_VENDOR)/lib/com.qualcomm.qti.imscmservice@1.0_vendor.so \
+    vendor/zte/axon7/proprietary/vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0-halimpl.so:$(TARGET_COPY_OUT_VENDOR)/lib/com.qualcomm.qti.wifidisplayhal@1.0-halimpl.so \
     vendor/zte/axon7/proprietary/vendor/lib/egl/eglSubDriverAndroid.so:$(TARGET_COPY_OUT_VENDOR)/lib/egl/eglSubDriverAndroid.so \
     vendor/zte/axon7/proprietary/vendor/lib/egl/libEGL_adreno.so:$(TARGET_COPY_OUT_VENDOR)/lib/egl/libEGL_adreno.so \
     vendor/zte/axon7/proprietary/vendor/lib/egl/libGLESv1_CM_adreno.so:$(TARGET_COPY_OUT_VENDOR)/lib/egl/libGLESv1_CM_adreno.so \
@@ -535,6 +570,7 @@ PRODUCT_COPY_FILES += \
     vendor/zte/axon7/proprietary/vendor/lib/libllvm-qcom.so:$(TARGET_COPY_OUT_VENDOR)/lib/libllvm-qcom.so \
     vendor/zte/axon7/proprietary/vendor/lib/libmdmdetect.so:$(TARGET_COPY_OUT_VENDOR)/lib/libmdmdetect.so \
     vendor/zte/axon7/proprietary/vendor/lib/libmm-color-convertor.so:$(TARGET_COPY_OUT_VENDOR)/lib/libmm-color-convertor.so \
+    vendor/zte/axon7/proprietary/vendor/lib/libmmosal_proprietary.so:$(TARGET_COPY_OUT_VENDOR)/lib/libmmosal_proprietary.so \
     vendor/zte/axon7/proprietary/vendor/lib/libperipheral_client.so:$(TARGET_COPY_OUT_VENDOR)/lib/libperipheral_client.so \
     vendor/zte/axon7/proprietary/vendor/lib/libqcci_legacy.so:$(TARGET_COPY_OUT_VENDOR)/lib/libqcci_legacy.so \
     vendor/zte/axon7/proprietary/vendor/lib/libqcmaputils.so:$(TARGET_COPY_OUT_VENDOR)/lib/libqcmaputils.so \
@@ -563,6 +599,11 @@ PRODUCT_COPY_FILES += \
     vendor/zte/axon7/proprietary/vendor/lib/libvpphvx.so:$(TARGET_COPY_OUT_VENDOR)/lib/libvpphvx.so \
     vendor/zte/axon7/proprietary/vendor/lib/libvpplibrary.so:$(TARGET_COPY_OUT_VENDOR)/lib/libvpplibrary.so \
     vendor/zte/axon7/proprietary/vendor/lib/libvqzip.so:$(TARGET_COPY_OUT_VENDOR)/lib/libvqzip.so \
+    vendor/zte/axon7/proprietary/vendor/lib/libwfdcommonutils_proprietary.so:$(TARGET_COPY_OUT_VENDOR)/lib/libwfdcommonutils_proprietary.so \
+    vendor/zte/axon7/proprietary/vendor/lib/libwfdhaldsmanager.so:$(TARGET_COPY_OUT_VENDOR)/lib/libwfdhaldsmanager.so \
+    vendor/zte/axon7/proprietary/vendor/lib/libwfdhdcpcp.so:$(TARGET_COPY_OUT_VENDOR)/lib/libwfdhdcpcp.so \
+    vendor/zte/axon7/proprietary/vendor/lib/libwfdmmservice.so:$(TARGET_COPY_OUT_VENDOR)/lib/libwfdmmservice.so \
+    vendor/zte/axon7/proprietary/vendor/lib/libwfdmodulehdcpsession.so:$(TARGET_COPY_OUT_VENDOR)/lib/libwfdmodulehdcpsession.so \
     vendor/zte/axon7/proprietary/vendor/lib/libwvhidl.so:$(TARGET_COPY_OUT_VENDOR)/lib/libwvhidl.so \
     vendor/zte/axon7/proprietary/vendor/lib/rfsa/adsp/libadsp_fd_skel.so:$(TARGET_COPY_OUT_VENDOR)/lib/rfsa/adsp/libadsp_fd_skel.so \
     vendor/zte/axon7/proprietary/vendor/lib/rfsa/adsp/libadsp_hvx_add_constant.so:$(TARGET_COPY_OUT_VENDOR)/lib/rfsa/adsp/libadsp_hvx_add_constant.so \
@@ -782,12 +823,14 @@ PRODUCT_PACKAGES += \
     QtiTelephonyService \
     CNEService \
     SmartcardService \
+    WfdService \
     dpmserviceapp \
     ims \
     qcrilmsgtunnel \
     PowerOffAlarm \
     TimeService \
     QtiTelephonyServicelibrary \
+    WfdCommon \
     qcrilhook \
     qti-telephony-common \
     uimlpalibrary
