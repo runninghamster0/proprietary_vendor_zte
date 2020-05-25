@@ -115,6 +115,16 @@ android_app_import {
 }
 
 android_app_import {
+	name: "uceShimService",
+	owner: "zte",
+	apk: "proprietary/app/uceShimService/uceShimService.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+}
+
+android_app_import {
 	name: "SmartcardService",
 	owner: "zte",
 	apk: "proprietary/priv-app/SmartcardService/SmartcardService.apk",
