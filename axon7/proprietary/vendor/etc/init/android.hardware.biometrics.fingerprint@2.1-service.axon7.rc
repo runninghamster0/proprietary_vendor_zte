@@ -1,0 +1,20 @@
+on post-fs-data
+    mkdir /data/system/users/0/fpdata 0755 system system
+    chmod 0755 /data/system/users/0/fpdata
+    chown system system /data/system/users/0/fpdata
+    restorecon_recursive /data/system/users/0/fpdata
+
+service fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service.axon7
+    # "class hal" causes a race condition on some devices due to files created
+    # in /data. As a workaround, postpone startup until later in boot once
+    # /data is mounted.
+    class late_start
+    user system
+    group system input uhid
+
+on property:ro.boot.fingerprint.id=goodix
+    start gx_fpd
+
+service gx_fpd /vendor/bin/gx_fpd
+    user root
+    group root system input
